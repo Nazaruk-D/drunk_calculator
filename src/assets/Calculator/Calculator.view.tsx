@@ -1,3 +1,8 @@
 export const Calculator = () => {
-    return <p>Calculator</p>
+    return (
+            <h1 className="text-3xl font-bold text-blue-500">
+                Calculator
+            </h1>
+    ) 
+    
 }
