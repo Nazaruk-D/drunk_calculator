@@ -1,1 +1,10 @@
 @import "tailwindcss";
+
+body {
+    background-image: url("../assets//background.webp");
+  height: 100vh;
+  background-size: contain; 
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: #000;
+}

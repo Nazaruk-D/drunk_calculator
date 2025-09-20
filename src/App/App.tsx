@@ -1,4 +1,4 @@
-import { Calculator } from '../assets/Calculator';
+import { Calculator } from '../pages/Calculator';
 import './App.css';
 
 export const App = () => {
