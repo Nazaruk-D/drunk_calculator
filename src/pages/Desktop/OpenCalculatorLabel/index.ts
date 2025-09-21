@@ -1,0 +1,1 @@
+export {OpenCalculatorLabel} from './OpenCalculatorLabel.view'

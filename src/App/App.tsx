@@ -1,10 +1,10 @@
-import { Calculator } from '../pages/Calculator';
+import { Desktop } from '../pages/Desktop';
 import './App.css';
 
 export const App = () => {
   return (
       <div>
-          <Calculator />
+          <Desktop />
       </div>
   )
 }
