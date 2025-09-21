@@ -3,7 +3,7 @@ import { OpenCalculatorLabel } from './OpenCalculatorLabel';
 import { Calculator } from './Calculator';
 
 export const Desktop = () => {
-    const [isOpenCalc, setIsOpenCalc] = useState(true)
+    const [isOpenCalc, setIsOpenCalc] = useState(false)
     const [isSelected, setIsSelected] = useState(false)
     
     const onClickCalcIcon = (e: React.MouseEvent<HTMLButtonElement>) => {
