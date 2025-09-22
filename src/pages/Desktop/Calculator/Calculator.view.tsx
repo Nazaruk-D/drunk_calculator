@@ -5,7 +5,7 @@ interface Props {
 }
 
 export const Calculator = ({onCloseCalc}: Props) => {
-    const {sign, input, input2, choseNumber, result, onSetResultHandler, setSignHandler, setValueHandler, onClearHandler} = useCalcActions()
+    const {sign, input, input2, choseNumber, result, onSetResultHandler, setSignHandler, setValueHandler, onClearHandler, resultHandler} = useCalcActions()
     // const sign = input2 < 0 ? '-' : '+'
     return (
       <div className="bg-white/20 backdrop-blur-lg rounded-3xl shadow-2xl p-6 border border-white/30 relative w-[300px] h-[500px] flex flex-col gap-2">
@@ -53,7 +53,6 @@ export const Calculator = ({onCloseCalc}: Props) => {
         </div>
         
         <button onClick={onSetResultHandler} className="w-full text-white bg-black/20 hover:bg-black/30 rounded-xl p-4 cursor-pointer">Установить значение</button>
-        <button onClick={onClearHandler} className="w-full text-white bg-black/20 hover:bg-black/30 rounded-xl p-4 cursor-pointer">Сбросить значения</button>
       
             {/* Ряд кнопок с операциями + - / * */}
         <div className="grid grid-cols-4 gap-2">
@@ -82,6 +81,15 @@ export const Calculator = ({onCloseCalc}: Props) => {
             ×
           </button>
         </div>
+
+        <button 
+            onClick={resultHandler}
+            className="bg-black/20 hover:bg-black/30 text-white p-3 rounded-lg font-bold transition-colors active:scale-95 cursor-pointer"
+          >
+            =
+        </button>
+
+        <button onClick={onClearHandler} className="w-full text-white bg-red-500/80 hover:bg-red-600 rounded-xl p-4 cursor-pointer">Сбросить значения</button>
       </div>
     )
 }

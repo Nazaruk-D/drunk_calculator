@@ -39,6 +39,51 @@ export const useCalcActions = () => {
         setResult('0')
     }
 
-    return {sign, input2, input, result, choseNumber, onSetResultHandler, setValueHandler, setSignHandler, setResult, onClearHandler} 
+const resultHandler = () => {
+        if (!sign || !input2) {
+            setResult(choseNumber !== '0' ? choseNumber : input);
+            return;
+        }
+
+        const num1 = parseFloat(input);
+        const num2 = parseFloat(input2);
+        let calculationResult: number;
+
+        switch (sign) {
+            case '+':
+                calculationResult = num1 + num2;
+                break;
+            case '-':
+                calculationResult = num1 - num2;
+                break;
+            case '*':
+                calculationResult = num1 * num2;
+                break;
+            case '/':
+                if (num2 === 0) {
+                    setResult('Error');
+                    return;
+                }
+                calculationResult = num1 / num2;
+                break;
+            default:
+                calculationResult = num1;
+        }
+
+        // Округляем результат до 10 знаков после запятой, чтобы избежать бесконечных дробей
+        const roundedResult = Math.round(calculationResult * 10000000000) / 10000000000;
+        
+        // Преобразуем в строку и убираем лишние нули после запятой
+        const resultString = roundedResult.toString();
+        setResult(resultString.includes('.') ? resultString.replace(/\.?0+$/, '') : resultString);
+
+        // Сбрасываем состояние
+        setInput(resultString);
+        setInput2(null);
+        setSign(null);
+        setChoseNumber('0');
+    }
+
+    return {sign, input2, input, result, choseNumber, onSetResultHandler, setValueHandler, setSignHandler, setResult, onClearHandler, resultHandler} 
   }
   
