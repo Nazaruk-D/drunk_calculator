@@ -1,7 +1,8 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export const useCalcActions = () => {
     const [choseNumber, setChoseNumber] = useState('0');
+    const [showCountdown, setShowCountdown] = useState(false);
     const [input, setInput] = useState('0');
     const [input2, setInput2] = useState<string | null>(null);
     const [sign, setSign] = useState<'+' | '-' | '*' | '/' | null>(null);
@@ -39,7 +40,7 @@ export const useCalcActions = () => {
         setResult('0')
     }
 
-const resultHandler = () => {
+    const resultHandler = () => {
         if (!sign || !input2) {
             setResult(choseNumber !== '0' ? choseNumber : input);
             return;
@@ -82,8 +83,15 @@ const resultHandler = () => {
         setInput2(null);
         setSign(null);
         setChoseNumber('0');
+        setShowCountdown(true)
+        setInput('0'); 
     }
 
-    return {sign, input2, input, result, choseNumber, onSetResultHandler, setValueHandler, setSignHandler, setResult, onClearHandler, resultHandler} 
+    const timeIsOver = () => {
+        setResult('0');
+        setShowCountdown(false)
+    }
+
+    return {sign, timeIsOver, showCountdown, input2, input, result, choseNumber, onSetResultHandler, setValueHandler, setSignHandler, onClearHandler, resultHandler} 
   }
   

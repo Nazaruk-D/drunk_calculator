@@ -1,18 +1,18 @@
 import { useCalcActions } from "./Calculator.hooks"
+import { Countdown } from "./Countdown/Countdown.view";
 
 interface Props {
     onCloseCalc: () => void;
 }
 
 export const Calculator = ({onCloseCalc}: Props) => {
-    const {sign, input, input2, choseNumber, result, onSetResultHandler, setSignHandler, setValueHandler, onClearHandler, resultHandler} = useCalcActions()
-    // const sign = input2 < 0 ? '-' : '+'
+    const { showCountdown, timeIsOver, sign, input, input2, choseNumber, result, onSetResultHandler, setSignHandler, setValueHandler, onClearHandler, resultHandler} = useCalcActions()
     return (
       <div className="bg-white/20 backdrop-blur-lg rounded-3xl shadow-2xl p-6 border border-white/30 relative w-[300px] h-[500px] flex flex-col gap-2">
         <button onClick={onCloseCalc} className='absolute top-0 left-[-40px] hover:bg-gray-600/20 transition-colors duration-200 w-[36px] h-[36px] cursor-pointer rounded-full'  >
           <span className='text-amber-50 flex justify-center items-center'>x</span>
         </button>
-
+        <Countdown trigger={showCountdown} setShowCountdown={timeIsOver} />
         <div className="bg-black/30 rounded-xl p-4 text-right space-y-2">
           <div className="text-white/70 text-sm min-h-[20px]">{input} {sign} {input2}</div>
           <div className="text-white text-3xl font-semibold truncate">{result}</div>
