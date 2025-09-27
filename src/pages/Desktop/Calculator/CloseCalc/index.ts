@@ -1,1 +1,1 @@
-export {CloseCalc} from './CloseCalc.view';
+export { CloseCalc } from "./CloseCalc.view";

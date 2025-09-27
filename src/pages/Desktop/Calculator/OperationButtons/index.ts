@@ -1,1 +1,1 @@
-export {OperationButtons} from './OperationButtons.view';
+export { OperationButtons } from "./OperationButtons.view";

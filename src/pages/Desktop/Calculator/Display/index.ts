@@ -1,1 +1,1 @@
-export {Display} from './Display.view';
+export { Display } from "./Display.view";

@@ -1,1 +1,1 @@
-export {ResetButton} from './ResetButton.view'
+export { ResetButton } from "./ResetButton.view";

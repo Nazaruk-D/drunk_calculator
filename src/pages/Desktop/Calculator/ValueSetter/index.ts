@@ -1,1 +1,1 @@
-export {ValueSetter} from './ValueSetter.view'
+export { ValueSetter } from "./ValueSetter.view";

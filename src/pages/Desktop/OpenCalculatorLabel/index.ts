@@ -1,1 +1,1 @@
-export {OpenCalculatorLabel} from './OpenCalculatorLabel.view'
+export { OpenCalculatorLabel } from "./OpenCalculatorLabel.view";

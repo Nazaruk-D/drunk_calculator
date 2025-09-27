@@ -1,1 +1,1 @@
-export { Desktop } from './Desktop.view';
+export { Desktop } from "./Desktop.view";

@@ -1,1 +1,1 @@
-export {Calculator} from './Calculator.view'
+export { Calculator } from "./Calculator.view";
