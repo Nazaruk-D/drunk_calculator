@@ -1,11 +1,13 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
+
+export type Sign = '+' | '-' | '*' | '/'
 
 export const useCalcActions = () => {
     const [choseNumber, setChoseNumber] = useState('0');
     const [showCountdown, setShowCountdown] = useState(false);
     const [input, setInput] = useState('0');
     const [input2, setInput2] = useState<string | null>(null);
-    const [sign, setSign] = useState<'+' | '-' | '*' | '/' | null>(null);
+    const [sign, setSign] = useState<Sign | null>(null);
     const [result, setResult] = useState('0');
 
     const setValueHandler = (value: "+" | "-") => {
@@ -28,7 +30,7 @@ export const useCalcActions = () => {
         setChoseNumber('0')
     }
 
-    const setSignHandler = (value: '+' | '-' | '*' | '/') => {
+    const setSignHandler = (value: Sign) => {
        setSign(value)
     };
 
@@ -92,6 +94,9 @@ export const useCalcActions = () => {
         setShowCountdown(false)
     }
 
-    return {sign, timeIsOver, showCountdown, input2, input, result, choseNumber, onSetResultHandler, setValueHandler, setSignHandler, onClearHandler, resultHandler} 
+    return { 
+        display: {sign, input, input2, result}, 
+        valueSetter: {choseNumber, setValueHandler},
+        timeIsOver, showCountdown, choseNumber, onSetResultHandler, setSignHandler, onClearHandler, resultHandler} 
   }
   
